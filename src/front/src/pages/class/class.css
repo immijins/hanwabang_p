@@ -1,0 +1,205 @@
+/* 전체 메인 레이아웃 */
+main {
+    margin-top: 80px;
+}
+section {
+    width: 85%;
+    height: auto;
+    float: right;
+    padding-top: 50px;
+    font-family: Pretendard;
+}
+
+/* 클래스 설명 */
+/* 타이틀 */
+.class_tit {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    text-align: center;
+}
+.class_tit > p:first-child {
+    font-size: 35px;
+    font-weight: bold;
+    color: #6B5B4D;
+}
+.class_tit > p:nth-child(2) {
+    font-size: 17px;
+    color: #888;
+    line-height: 26px;
+    margin-top: 15px;
+    font-weight: 400;
+}
+/* 이미지 갤러리 */
+.class_imgs {
+    width: 80%;
+    height: auto;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.class_imgs > div {
+    width: 30%;
+    height: auto;
+}
+.class_imgs img {
+    width: 100%;
+    height: auto;
+}
+
+/* 이미지 + 수업내용 */
+.class_txt {
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+}
+.class_box {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.class_txt_tit_box {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+.class_box > div:nth-child(2) {
+    width: 60%;
+    height: auto;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.class_box > div:nth-child(2) > div {
+    width: 47%;
+    height: auto;
+}
+.class_box > div:nth-child(2) > div > img {
+    width: 100%;
+    height: 100%;
+}
+.class_box > p:nth-child(3) {
+    font-family: "Gowun Batang", serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6B5B4D;
+    margin-top: 10px;
+}
+.class_box > div:nth-child(4) > p {
+    font-family: "Gowun Batang", serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 35px;
+    color: #222;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.class_txt_de {
+    color: #897766;
+    font-weight: bold;
+}
+.class_button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 100px;
+}
+.class_button > a {
+    width: 150px;
+    height: 45px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #B5977F;
+    box-sizing: border-box;
+    border-radius: 100px;
+    color: #B5977F;
+    line-height: 43px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+/* 요리 클래스 */
+.cook_main table {
+    width: 60%;
+    height: auto;
+    margin: 80px auto;
+    border-collapse: collapse;
+}
+.cook_main table tr td {
+    border: 1px solid #B5977F;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #434343;
+}
+.cook_main table th {
+    background-color: #B5977F;
+    box-sizing: border-box;
+    border: 1px solid #B5977F;
+    padding: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+caption {
+    font-size: 20px;
+    color: #444;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* 반응형 */
+@media screen and (max-width: 1279px) {
+    .class_tit > p:first-child {
+        font-size: 28px;
+    }
+    .class_tit > p:nth-child(2) {
+        font-size: 16px;
+    }
+    .class_box > p:nth-child(3) {
+        font-size: 17px;
+    }
+    .class_box > div:nth-child(4) > p {
+        font-size: 16px;
+    }
+    .class_button > a {
+        width: 120px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        float: none;
+    }
+    .class_tit > p:nth-child(2) {
+        font-size: 14px;
+    }
+    .class_imgs {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .class_txt {
+        padding-top: 30px;
+    }
+    .class_box {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .class_txt_tit > img {
+        width: 50%;
+    }
+    .class_box > div:nth-child(2) {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .class_box > p:nth-child(3) {
+        font-size: 14px;
+    }
+    .class_box > div:nth-child(4) > p {
+        font-size: 14px;
+    }
+    .cook_main table {
+        width: 90%;
+    }
+}

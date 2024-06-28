@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>관리자 로그인</title>
+  <style>
+    body {
+      background-color: #607c8b;
+      text-align: center;
+      font-family: Pretendard;
+    }
+    h1 {
+      padding-top: 30px;
+      padding-bottom: 20px;
+      color: #37474f;
+    }
+    form {
+      width: 30%;
+      height: 350px;
+      margin: 0 auto;
+      background: #cfd8dc;
+      margin-top: 220px;
+      border: 1px solid #b0bec5;
+      border-radius: 30px;
+    }
+    div {
+      margin-top: 20px;
+    }
+    button {
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #263238;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      margin-top: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    label {
+      color: #37474f;
+      font-size: 17px;
+    }
+    input {
+      width: 170px;
+      height: 30px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<form action="/admin/login" method="post">
+  <h1>한과방 관리자 로그인</h1>
+  <div>
+    <label for="username">아 이 디 : </label>
+    <input type="text" id="username" name="username">
+  </div>
+  <div>
+    <label for="password">비밀번호 : </label>
+    <input type="password" id="password" name="password">
+  </div>
+  <button type="submit">로그인</button>
+</form>
+</body>
+</html>

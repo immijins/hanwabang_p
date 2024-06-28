@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 글 읽기</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Pretendard;
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            width: 15%;
+            height: 100vh;
+            background-color: #607c8b;
+            float: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            width: 100%;
+            height: 55px;
+            line-height: 55px;
+            background-color: #37474f;
+        }
+        ul > li > a {
+            width: 100%;
+            height: 55px;
+            display: block;
+            text-decoration: none;
+            color: #cfd8dc;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .on {
+            background-color: #263238;
+            color: #ffffff;
+        }
+        article {
+            width: 85%;
+            height: auto;
+            text-align: center;
+            margin: 0 auto;
+            float: left;
+        }
+        h1 {
+            font-size: 22px;
+        }
+        .container > div {
+            background-color: #eee;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            float: left;
+            padding-bottom: 10px;
+        }
+        .container > div:first-child {
+            width: 15%;
+            height: 50px;
+            line-height: 50px;
+            float: left;
+        }
+        .container > div:first-child > input {
+            width: 50px;
+            margin-left: 10px;
+            text-align: center;
+        }
+        .container > div:nth-child(2) {
+            width: 55%;
+            height: 50px;
+            line-height: 50px;
+            float: left;
+        }
+        .container > div:nth-child(2) > input {
+            width: 80%;
+            margin-left: 10px;
+        }
+        .container > div:nth-child(3) {
+            width: 30%;
+            height: 50px;
+            line-height: 50px;
+        }
+        .container > div:nth-child(3) input {
+            width: 150px;
+            margin-left: 10px;
+        }
+        .container > div:nth-child(4) {
+            width: 50%;
+        }
+        .container > div:nth-child(4) > span {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        textarea {
+            width: 90%;
+            height: 300px;
+            margin-top: 10px;
+            border: none;
+        }
+        .container > div:nth-child(5) {
+            width: 50%;
+        }
+        .container > div:nth-child(5) > span {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .container > div:nth-child(5) img {
+            width: 300px;
+            height: 300px;
+            padding-bottom: 5px;
+        }
+        .container > div:nth-child(6) {
+            width: 100%;
+            height: 50px;
+            background-color: #fff;
+            margin-top: 40px;
+        }
+        .container > div:nth-child(6) button {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #37474f;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .container > div:nth-child(6) > a {
+            text-decoration: none;
+        }
+        .container > div:nth-child(6) > a:nth-child(2) > button {
+            background-color: #263238;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        input {
+            border: none;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <section layout:fragment="content">
+        <ul>
+            <li><a th:href="@{/admin/museum/list}">박물관</a></li>
+            <li><a th:href="@{/admin/notice/list}" class="on">공지사항</a></li>
+        </ul>
+
+        <article>
+            <h1>공지사항 글</h1>
+            <div class="container">
+                <div>
+                    <span>순번</span>
+                    <input type="text" th:value="${dto.no}" readonly/>
+                </div>
+                <div>
+                    <span>제목</span>
+                    <input type="text" th:value="${dto.title}" readonly/>
+                </div>
+                <div>
+                    <span>작성일</span>
+                    <input type="text" th:value="${dto.regDate}" readonly/>
+                </div>
+                <div>
+                    <span>내용</span>
+                    <textarea readonly>[[${dto.content}]]</textarea>
+                </div>
+                <div>
+                    <span>이미지</span>
+                    <img th:src="@{/admin/notice/images/{filename}(filename=${dto.imagePath})}" alt="Image"/>
+                </div>
+                <div>
+                    <a th:href="|@{/admin/notice/list}|">
+                        <button type="button">목록</button>
+                    </a>
+                    <a th:href="|@{/admin/notice/modify(no=${dto.no})}|">
+                        <button type="button">수정</button>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

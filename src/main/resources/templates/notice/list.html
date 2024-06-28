@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 목록</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Pretendard;
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            width: 15%;
+            height: 100vh;
+            background-color: #607c8b;
+            float: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            width: 100%;
+            height: 55px;
+            line-height: 55px;
+            background-color: #37474f;
+        }
+        ul > li > a {
+            width: 100%;
+            height: 55px;
+            display: block;
+            text-decoration: none;
+            color: #cfd8dc;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .on {
+            background-color: #263238;
+            color: #ffffff;
+        }
+        table {
+            width: 60%;
+            margin: 0 auto;
+            font-size: 18px;
+            border-top: 2px solid #37474f;
+            border-bottom: 1px solid #607c8b;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background-color: #eceff1;
+        }
+        table tr {
+            height: 45px;
+            line-height: 45px;
+        }
+        h1 {
+            color: #37474f;
+            font-size: 25px;
+            margin-top: 30px;
+        }
+        article {
+            width: 85%;
+            height: auto;
+            text-align: center;
+            margin: 0 auto;
+            float: left;
+        }
+        .add_box {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .add {
+            float: right;
+            display: block;
+            text-decoration: none;
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            background-color: #37474f;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .num {
+            font-size: 18px;
+        }
+        .num > a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <section layout:fragment="content">
+        <ul>
+            <li><a th:href="@{/admin/museum/list}">박물관</a></li>
+            <li><a th:href="@{/admin/notice/list}" class="on">공지사항</a></li>
+        </ul>
+
+        <article>
+            <h1>공지사항 리스트</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th width="10%">순번</th>
+                    <th WIDTH="60%">제목</th>
+                    <th width="30%">작성일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="dto : ${noticeDTO.dtoList}">
+                    <th th:text="${dto.no}">No</th>
+                    <td><a th:href="@{/admin/notice/read(no=${dto.no})}" th:text="${dto.title}">Title</a></td>
+                    <td>[[${#temporals.format(dto.regDate, 'yyyy-MM-dd')}]]</td>
+                </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <div>
+            <span class="num" th:each="i : ${#numbers.sequence(noticeDTO.start, noticeDTO.end)}">
+                <a th:href="@{/admin/notice/list(page=${i}, size=${noticeDTO.size})}" th:text="${i}">Page</a>
+            </span>
+        </div>
+
+        <div class="add_box">
+            <a th:href="|@{/admin/notice/register}|" class="add">추가</a>
+        </div>
+    </section>
+</body>
+</html>
