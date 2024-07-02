@@ -17,7 +17,7 @@ React를 활용하여 Frontend - 사용자페이지(반응형)를 제작하였�
 ## ⚙기술스택
 **Tool :** Figma, Illustrator, IntelliJ IDEA
 
-**Framework/Library :** Spring Boot, Spring Security, Thymeleaf, React, axios
+**Framework/Library :** Spring Boot, Spring Security, JPA, Thymeleaf, React, axios
 
 **DataBase :** MariaDB
 
