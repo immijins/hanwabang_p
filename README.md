@@ -6,6 +6,7 @@ React를 활용하여 Frontend - 사용자페이지(반응형)를 제작하였�
 실제 사용될 사이트로 **GitHub 코드는 일부 공개**되어있습니다.
 
 사이트 링크 : <https://hanwabang.com/>
+서브 링크 : <http://hanwabang-env.eba-rpaskaqb.ap-northeast-2.elasticbeanstalk.com/>
 
 ## 📂프로젝트 소개
 업체를 홍보할 수 있도록 사용자가 보는 사용자페이지와 관리자가 게시글을 관리할 수 있는 관리자페이지로 구성되어 있습니다.
